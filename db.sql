@@ -1,0 +1,4 @@
+CREATE TABLE Project(PROJECT_INDEX CHAR(3) PRIMARY KEY, PROJECT_NAME VARCHAR(32), PROJECT_DESC VARCHAR(256), PROJECT_HTTP VARCHAR(64), PROJECT_IMAGE VARBINARY(32));
+INSERT INTO Project VALUES("001", "Minesweeper", "Minesweeper recreated with Java using Swing UI and TDD, packaged with Gradle. Joint project with Ronak Shah (github.com/rshah03).", "https://github.com/jcooke92/Minesweeper", NULL)
+INSERT INTO Project VALUES("002", "WordGuessingGame", "Try to guess a word given a scrambled version of that word. Built with Java and Gradle.", "https://github.com/jcooke92/WordGuessingGame", NULL);
+INSERT INTO Project VALUES("003", "Divekick", "2D infinite runner/action game developed for mobile devices. Jump and kick your way to glory! Made with Unity and C#.", "https://github.com/jcooke92/Divekick", NULL)
