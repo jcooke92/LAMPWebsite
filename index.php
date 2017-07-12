@@ -100,7 +100,7 @@ table, th, td
 	</br>
 	<h2>About This Wesbite</h2>
 	</br>
-	<p>This website is running a LAMP (Linux, Apache, MySQL, PHP) solution stack on a Raspberry Pi computer from my study room. Feel free to look over the <a href="https://github.com/jcooke92/" target="_blank">source code</a>.</p>
+	<p>This website is running a LAMP (Linux, Apache, MySQL, PHP) solution stack on a Raspberry Pi computer from my study room. Feel free to look over the <a href="https://github.com/jcooke92/LAMPWebsite" target="_blank">source code</a>.</p>
 	</br>
 	</br>
 </body>
