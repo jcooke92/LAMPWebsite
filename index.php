@@ -1,107 +1,94 @@
-<!
-
-Color Palette
-
-#FFFFFF
-#F2FFF4
-#B0FFBE
-#7DFE93
-#000000
->
-
 <!DOCTYPE html>
-<html>
-<head>
-<style type="text/css">
-body 
-{
-	background-color: #F2FFF4;
-	border-style: solid;
-	border-width: 0px;
-	border-color: #B0FFBE;
-	margin: auto;
-}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-h1, h2, h2
-{
-	color: #7DFE93;
-	text-align: center;
-	border-style: solid;
-	border-width: 0px;
-	border-color: #B0FFBE;
-	margin: auto;
-}
+    <title>Jonathan's Portfolio</title>
 
-h3, p
-{	
-	color: #000000;
-	margin: auto;
-	margin-left: 100px;
-	margin-right: 100px;
-	text-align: center;
-}
+    <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-table, th, td
-{
-	margin: auto;
-	text-align: center;
-}
-</style>
-</head>
-<body>
-	<h1>Welcome to Jonathan's Portfolio!</h1>
-	</br>
-	<h3>To see a full list of my projects, visit my <a href="https://github.com/jcooke92/" target="_blank">Github</a> account or drop me an e-mail: <a href="mailto:jonathan.a.cooke@outlook.com" target="_blank">jonathan.a.cooke@outlook.com</a>.</h3>
-	<table>
-		<tbody>
-			<tr>
-				<td>
-				<?php
-					    $con = mysqli_connect("localhost", "jonathan", "gearzy", "develop");
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-					    if (mysqli_connect_errno())
-					    { echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="index.css">
 
-					    $result = mysqli_query($con,"SELECT * FROM Project");
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
-					    echo "</br>";
-				      	echo "</br>";
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-					    echo "<hr size=\"4\" color=\"#B0FFBE\"></hr>";
+  </head>
 
-					    while($row = mysqli_fetch_array($result))
-					    {
-					      echo "<h3>";	
-					      echo "" . $row['PROJECT_NAME'];
-					      echo "</h3>";	
-					      echo "</br>";
-					      echo "" . $row['PROJECT_DESC'];
-					      echo "</br>";
-					      echo "</br>";
-					      echo "<a href=\"" . $row['PROJECT_HTTP'] . "\" target=\"_blank\">Github Link</a>";
-					      echo "</br>";
-					      echo "</br>";
-					      echo "<hr size=\"4\" color=\"#B0FFBE\"></hr>";
-					      echo "</br>";
-					      echo "</br>";
-					    }
+  <body>
 
-					    mysqli_close($con);
-					?>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</br>
-	<h2>About Me</h2>
-	</br>
-	<p>I'm a recent University of Houston graduate with a degree in Computer Science and a minor in Mathematics. I've been programming and gushing over computers since I was in highscool. As of now, I'm trying to spur my career in software design by creating this portfolio and continuing to work on various projects. I'm also looking for career opportunities within computer science/software design. Thanks for visiting!</p>
-	</br>
-	</br>
-	<h2>About This Wesbite</h2>
-	</br>
-	<p>This website is running a LAMP (Linux, Apache, MySQL, PHP) solution stack on a Raspberry Pi computer from my study room. Feel free to look over the <a href="https://github.com/jcooke92/LAMPWebsite" target="_blank">source code</a>.</p>
-	</br>
-	</br>
-</body>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hello, world!</h1>
+        <p><strong>This is my portfolio website hosted on a Raspberry Pi computer using a LAMP solution stack. Here, you'll find a limited showcase of projects that I've worked on. Feel free to drop me an e-mail or visit my GitHub to see more.</strong></p>
+        <p><a class="btn btn-primary btn-lg" href="mailto:jonathan.a.cooke@outlook.com?Subject=Hello">jonathan.a.cooke@outlook.com &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="https://github.com/jcooke92" role="button">GitHub &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <?php
+      	$counter = 0;
+      	$con = mysqli_connect("localhost", "jonathan", "gearzy", "develop");
+
+	    if (mysqli_connect_errno())
+	    { echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
+
+	    $result = mysqli_query($con,"SELECT * FROM Project");
+
+	    echo "<div class=\"row\">";
+
+	    while($counter < 3 && $row = mysqli_fetch_array($result))
+	    {
+	    	echo "<div class=\"col-md-4\">";
+	    	echo "<h2>" . $row['PROJECT_NAME'] . "</h2>";
+	    	echo "<p>" . $row['PROJECT_DESC'] . "</p>";
+	      	echo "<p><a class=\"btn btn-default\" href=\"" . $row['PROJECT_HTTP'] . "\" role=\"button\">View details &raquo;</a></p>";
+	      	echo "</div>";
+	      	++$counter;
+	    }
+
+	    echo "</div>";
+
+	    mysqli_close($con);
+      ?>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2017 Jonathan Cooke</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
+
+
