@@ -75,6 +75,7 @@
       <hr>
 
       <footer>
+      	<p><a class="btn btn-default btn-sm" href="https://github.com/jcooke92/LAMPWebsite" role="button">View source code for this site &raquo;</a></p>
         <p>&copy; 2017 Jonathan Cooke</p>
       </footer>
     </div> <!-- /container -->
