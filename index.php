@@ -56,11 +56,11 @@
 	    while($counter < 3 && $row = mysqli_fetch_array($result))
 	    {
 	    	echo "<div class=\"col-md-4\">";
-	    	echo "<h2>" . $row['PROJECT_NAME'] . "</h2>";
+        echo "<h2>" . "<img src=\"" . $row['PROJECT_IMAGE'] . "\" alt=\"\" height=\"48\" width=\"48\">" . $row['PROJECT_NAME'] . "</h2>";
 	    	echo "<p>" . $row['PROJECT_DESC'] . "</p>";
-	      	echo "<p><a class=\"btn btn-default\" href=\"" . $row['PROJECT_HTTP'] . "\" role=\"button\">View details &raquo;</a></p>";
-	      	echo "</div>";
-	      	++$counter;
+	      echo "<p><a class=\"btn btn-default\" href=\"" . $row['PROJECT_LINK'] . "\" role=\"button\">View details &raquo;</a></p>";
+	      echo "</div>";
+	      ++$counter;
 	    }
 
 	    echo "</div>";
